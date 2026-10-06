@@ -1,0 +1,57 @@
+{
+  "name": "bare-refresh-transport-tcp",
+  "version": "0.0.0",
+  "description": "TCP transport for bare-refresh",
+  "exports": {
+    "./package": "./package.json",
+    ".": {
+      "types": "./index.d.ts",
+      "default": "./index.js"
+    },
+    "./connect": {
+      "types": "./lib/connect.d.ts",
+      "default": "./lib/connect.js"
+    },
+    "./listen": {
+      "types": "./lib/listen.d.ts",
+      "default": "./lib/listen.js"
+    }
+  },
+  "imports": {
+    "net": {
+      "bare": "bare-tcp",
+      "default": "net"
+    }
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "lib"
+  ],
+  "scripts": {
+    "format": "prettier --write . && lunte --fix",
+    "lint": "prettier --check . && lunte",
+    "test": "npm run test:bare && npm run test:node",
+    "test:bare": "brittle-bare --coverage test.js",
+    "test:node": "brittle-node --coverage test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/holepunchto/bare-refresh-transport-tcp.git"
+  },
+  "author": "Holepunch",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/holepunchto/bare-refresh-transport-tcp/issues"
+  },
+  "homepage": "https://github.com/holepunchto/bare-refresh-transport-tcp#readme",
+  "dependencies": {
+    "bare-tcp": "^2.6.1"
+  },
+  "devDependencies": {
+    "brittle": "^4.3.0",
+    "lunte": "^1.8.0",
+    "prettier": "^3.4.1",
+    "prettier-config-holepunch": "^2.0.0"
+  }
+}
